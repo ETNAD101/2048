@@ -3,10 +3,10 @@
 
 int main() {
    Game g = Game();
-   int x;
-   std::cin >> x;
-   g.setPoint(x, 0, 0);
-   g.display();
-
+   int in;
+   for(int i = 0; i < 10; i++) {
+      g.place();
+      g.display();
+   }
    return 0;
 }

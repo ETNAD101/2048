@@ -8,7 +8,9 @@ class Game
     public:
        Game();
        void display();
-       void setPoint(int value, int x, int y);
+       void place();
+       void shift(char direction);
+       int setPoint(int value, int pos);
 };
 
 #endif // GAMECLASS_H
