@@ -9,7 +9,8 @@ class Game
        Game();
        void display();
        void place();
-       void shift(char direction);
+       void clear();
+       void compress(char direction);
        int setPoint(int value, int pos);
 };
 

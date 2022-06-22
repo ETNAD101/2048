@@ -5,6 +5,11 @@
 
 Game::Game() {
     std::srand((unsigned) std::time(0));
+    Game::clear();
+    std::cout << "Game Ready" << std::endl; 
+}
+
+void Game::clear() {
     int i;
     int j;
     for (i = 0; i < 4; i++) {
@@ -14,7 +19,6 @@ Game::Game() {
         j = 0;
     }
     i = 0;
-    std::cout << "Game Ready" << std::endl; 
 }
 
 int Game::setPoint(int value, int pos) {
@@ -45,20 +49,26 @@ int Game::setPoint(int value, int pos) {
 }
 
 void Game::place() {
-    int num;
-    int setNum = (std::rand() % 10) + 1;
-    int setPos = (std::rand() % 17);
+    bool pass = false;
+    while (!pass) {
+        int num;
+        int setNum = (std::rand() % 10) + 1;
+        int setPos = (std::rand() % 17);
 
-    if(setNum == 10) {
-        num = 4;
-    }else{
-        num = 2;
+        if(setNum == 10) {
+            num = 4;
+        }else{
+            num = 2;
+        }
+
+        if (Game::setPoint(num, setPos) == 0) {
+            pass = !pass;
+        }
     }
-
-    while(Game::setPoint(num, setPos) == 1) {}
+   
 }
 
-void Game::shift(char direction) {
+void Game::compress(char direction) {
     int currentX, currentY, nextX, nextY;
     for (currentX = 0; currentX < 3; currentX ++) {
 

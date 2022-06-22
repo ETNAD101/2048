@@ -3,10 +3,9 @@
 
 int main() {
    Game g = Game();
-   int in;
-   for(int i = 0; i < 10; i++) {
-      g.place();
-      g.display();
-   }
+   g.place();
+   g.display();
+   g.clear();
+   g.display();
    return 0;
 }
